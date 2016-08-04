@@ -32,13 +32,6 @@ $(document).ready(function(){
 			});
 	});
 
-
-});
-
-$('button').on("click", function() {
-	updateCrap();
-});
-
 function buildNewTable(stockInfo){
 
 	if(stockInfo.Change[0] == '+'){
@@ -54,6 +47,9 @@ function buildNewTable(stockInfo){
 				htmlString += '<td>' + stockInfo.Bid + '</td>';
 				htmlString += '<td class="'+upDown+'">' + stockInfo.Change + '</td>';
 				htmlString += '<td> <button class="add btn btn-success">add</button> </td></tr>';
+				$('button').on("click", function() {
+					updateCrap();
+				});
 
 function updateCrap(){
 		localStorage.setItem('symbol', stockInfo.Symbol);
@@ -69,7 +65,14 @@ function updateCrap(){
 			$('.5').html(localStorage.getItem('change'));
 	}
 			return htmlString;
+			
 }
+
+});
+
+
+
+
 
 // var addIt = $('#add');
 // 	addIt.click(function(){
